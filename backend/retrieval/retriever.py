@@ -28,9 +28,9 @@ def retrieve(
     pc: Pinecone,
     openai_client: OpenAI,
     index_name: str,
-    top_k_children: int = 20,
-    top_k_parents: int = 5,
-    score_threshold: float = 0.35,
+    top_k_children: int = 30,   # was 20
+    top_k_parents: int = 8,     # was 5
+    score_threshold: float = 0.30,  # was 0.35 — slightly lower to catch edge sections
     namespace: str = "kb",
 ) -> List[RetrievedChunk]:
     """

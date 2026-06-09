@@ -140,11 +140,15 @@ def build_system_prompt(language: Language, context_chunks: list) -> str:
     # --- Shared grounding rules (language-independent) ---
     grounding_rules = """
 STRICT RULES — follow these without exception:
-1. Answer ONLY using the context provided below. Never use outside knowledge.
-2. If the answer is not in the context, say so clearly — do not guess.
-3. Never fabricate fees, dates, deadlines, or requirements.
-4. Always cite your source inline: (Source: <document name>, Page <number>).
-5. If multiple chunks support the answer, cite all of them.
+1. Answer ONLY from context. Never use outside knowledge.
+2. NEVER state specific numbers (publication counts, years, percentages, 
+   BPS grades) unless they appear EXACTLY in the provided context.
+3. If the context doesn't contain the answer, say clearly:
+   "I don't have complete information on this in my knowledge base."
+4. Always cite: Source: [document], Page [number]. If your answer is "I don't have complete information on this in my knowledge base then don't cite any source and page" 
+5. If a section spans multiple pages, say so and note the answer 
+   may be incomplete.
+
 """
 
     # --- Language-specific instruction ---

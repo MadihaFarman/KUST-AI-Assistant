@@ -254,11 +254,11 @@ async def chat(
         pc=pc,
         openai_client=openai_client,
         index_name=settings.pinecone_index,
-        top_k_children=20,
-        top_k_parents=5,
-        score_threshold=0.35,
+        top_k_children=30,    # more candidates
+        top_k_parents=8,      # allow more parents
+        score_threshold=0.30,   # slightly more inclusive
         namespace="kb",
-    )
+    )   
 
     if not chunks:
         return ChatResponse(
@@ -274,7 +274,7 @@ async def chat(
         model=settings.openai_chat_model,
         messages=messages,
         temperature=0.1,
-        max_tokens=1024,
+        max_tokens=2048,
         stream=False,
     )
 

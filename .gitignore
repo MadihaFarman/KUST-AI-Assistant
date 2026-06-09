@@ -4,3 +4,23 @@ qdrant_storage/
 __pycache__/
 *.pyc
 *.pdf
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/build/
+
+# Frontend caches and logs
+frontend/.turbo/
+frontend/.vercel/
+frontend/.eslintcache
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Frontend local environment files
+frontend/.env
+frontend/.env*.local
